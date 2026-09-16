@@ -1,0 +1,36 @@
+[
+    {
+        "name": "Minecraft",
+        "year": "2009",
+        "genre": [
+            "Sandbox"
+        ],
+        "rating": "10"
+    },
+    {
+        "name": "Apex Legends",
+        "year": "2019",
+        "genre": [
+            "FPS",
+            "Battle-Royale"
+        ],
+        "rating": "7"
+    },
+    {
+        "name": "The Sims 4",
+        "year": "2014",
+        "genre": [
+            "Life Simulation",
+            "Casual"
+        ],
+        "rating": "8"
+    },
+    {
+        "name": "Counter-Strike: Global Offensive",
+        "year": "2012",
+        "genre": [
+            "Tactical FPS"
+        ],
+        "rating": "9"
+    }
+]

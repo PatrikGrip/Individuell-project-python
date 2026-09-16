@@ -1,20 +1,16 @@
 from game import GameClass
-#from storage import (
-#    save_games,
-#    load_games
-#)
-
+from storage import save_games, load_games
 from utility import wait_for_input, get_valid_choice
 
-#games_list = load_games()
+games_list = load_games()
 
 # Spel lista med premade spel eftersom jag blev trött på att lägga till flera spel varje gång jag starta programmet
-games_list = [
-    GameClass("Minecraft", "2009", ["Sandbox", "Survival", "Adventure"], "10"),
-    GameClass("Apex Legends", "2019", ["Battle-Royale", "Shooter", "FPS"], "7"),
-    GameClass("The Sims 4", "2014", ["Life Simulation", "Sandbox", "Management"], "8"),
-    GameClass("Counter Strike: Global Offensive", "2012", ["Shooter", "FPS", "Tactical"], "9"),
-]
+#games_list = [
+#    GameClass("Minecraft", "2009", ["Sandbox", "Survival", "Adventure"], "10"),
+#    GameClass("Apex Legends", "2019", ["Battle-Royale", "Shooter", "FPS"], "7"),
+#    GameClass("The Sims 4", "2014", ["Life Simulation", "Sandbox", "Management"], "8"),
+#    GameClass("Counter Strike: Global Offensive", "2012", ["Shooter", "FPS", "Tactical"], "9"),
+#]
 
 
 
@@ -35,6 +31,7 @@ def add_game():
     # Skapar ett game objekt
     new_game = GameClass(name, year, genre, rating)
     games_list.append(new_game)
+    save_games(games_list)
 
     print(("\n"*30) + f"Du har lagt till spelet {name} i din lista.")
 
@@ -69,7 +66,7 @@ def show_game():
     
     choice = get_valid_choice("\nHur vill du visa dina spel? ", len(sorting_category))
     
-    if choice == None:
+    if choice is None:
         wait_for_input()
         return
 
@@ -77,7 +74,7 @@ def show_game():
 
     sorting_name, sorting_function, sorting_reverse = sorting_option
 
-    print(f"Du valde att sortera med {sorting_name}")
+    print(f"\nDu valde att sortera med {sorting_name}\n")
     sorted_games = sorted(games_list, key=sorting_function, reverse=sorting_reverse)
 
     for game in sorted_games:
@@ -124,11 +121,12 @@ def remove_game():
 
     choice = get_valid_choice("\nTryck på en siffra kopplat till det spelet du vill ta bort. ", len(games_list))
 
-    if choice == None:
+    if choice is None:
         wait_for_input()
         return
 
     removed_game = games_list.pop(choice - 1)
+    save_games(games_list)
     print(f"\nSpelet {removed_game.name} har tagits bort från din lista.")
     
 
@@ -152,7 +150,7 @@ def edit_game():
 
     choice = get_valid_choice("\nVilket spel vill du redigera? ", len(games_list))
 
-    if choice == None:
+    if choice is None:
         wait_for_input()
         return
 
@@ -175,7 +173,7 @@ def edit_game():
 
     choice = get_valid_choice("Vad vill du redigera? ", len(category_name))
 
-    if choice == None:
+    if choice is None:
         wait_for_input()
         return
 
@@ -190,6 +188,7 @@ def edit_game():
         new_value = [g.strip() for g in new_value.split(",")]
 
     setattr(game_to_edit, option_name, new_value)
+    save_games(games_list)
 
     wait_for_input()
 

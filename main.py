@@ -1,10 +1,4 @@
-from game_functions import (add_game, 
-                            show_game, 
-                            search_game, 
-                            remove_game, 
-                            edit_game, 
-                            quit_program
-                            )
+from game_functions import add_game, show_game, search_game, remove_game, edit_game, quit_program
 
 # Tuple med text och funktion kopplade till texten
 category_name = [

@@ -19,3 +19,20 @@ def save_games(games_list):
 
     with open(FILENAME, "w", encoding="utf-8") as file:
         json.dump(data, file, indent=4)
+
+
+
+
+def load_games():
+    try:
+        with open(FILENAME, "r", encoding="utf-8") as file:
+            data = json.load(file)
+    except FileNotFoundError:
+        return []
+
+    games_list = []
+    for entry in data:
+        games_list.append(GameClass(entry["name"], entry["year"], entry["genre"], entry["rating"]))
+
+    return games_list
+
