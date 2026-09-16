@@ -1,4 +1,5 @@
 from game_functions import add_game, show_game, search_game, remove_game, edit_game, quit_program
+from utility import clear_screen
 
 # Tuple med text och funktion kopplade till texten
 category_name = [
@@ -11,6 +12,8 @@ category_name = [
 ]
 
 while True:
+    print("n"*10)
+    clear_screen()
     print("""
                                                                   
  ____  _ _   _      _____         _             _     _           

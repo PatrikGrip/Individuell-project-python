@@ -1,3 +1,5 @@
+import os
+
 def wait_for_input():
     input("\nTryck Enter för att fortsätta ")
 
@@ -15,3 +17,6 @@ def get_valid_choice(prompt, max_value):
         return None
 
     return choice
+
+def clear_screen():
+    os.system("cls" if os.name == "nt" else "clear")

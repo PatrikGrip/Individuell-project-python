@@ -1,6 +1,6 @@
 from game import GameClass
 from storage import save_games, load_games
-from utility import wait_for_input, get_valid_choice
+from utility import wait_for_input, get_valid_choice, clear_screen
 
 games_list = load_games()
 
@@ -15,7 +15,9 @@ games_list = load_games()
 
 
 def add_game():
-    print("\n"*10 + "="*30)
+    print("n"*10)
+    clear_screen()
+    print("="*30)
     print("LÄGG TILL SPEL")
     print("="*30 + "\n")
 
@@ -33,7 +35,9 @@ def add_game():
     games_list.append(new_game)
     save_games(games_list)
 
-    print(("\n"*30) + f"Du har lagt till spelet {name} i din lista.")
+    print("n"*10)
+    clear_screen()
+    print(f"Du har lagt till spelet {name} i din lista.")
 
     wait_for_input()
 
@@ -41,7 +45,9 @@ def add_game():
 
 
 def show_game():
-    print("\n"*10 + "="*30)
+    print("n"*10)
+    clear_screen()
+    print("="*30)
     print("DINA SPEL")
     print("="*30 + "\n")
 
@@ -74,6 +80,8 @@ def show_game():
 
     sorting_name, sorting_function, sorting_reverse = sorting_option
 
+    print("n"*10)
+    clear_screen()
     print(f"\nDu valde att sortera med {sorting_name}\n")
     sorted_games = sorted(games_list, key=sorting_function, reverse=sorting_reverse)
 
@@ -87,7 +95,9 @@ def show_game():
 
 
 def search_game():
-    print("\n"*10 + "="*30)
+    print("n"*10)
+    clear_screen()
+    print("="*30)
     print("SÖK EFTER SPEL")
     print("="*30)
 
@@ -96,7 +106,7 @@ def search_game():
         wait_for_input()
         return
 
-    search_term = input("Sök efter spel: ")
+    search_term = input("\nSök efter spel: ")
 
     results = []
 
@@ -116,6 +126,12 @@ def search_game():
 
 
 def remove_game():
+    print("n"*10)
+    clear_screen()
+    print("="*30)
+    print("TA BORT SPEL")
+    print("="*30)
+
     for game in range(len(games_list)):
         print(f"{game + 1} {games_list[game]}")
 
@@ -136,7 +152,9 @@ def remove_game():
 
 
 def edit_game():
-    print("\n"*10 + "="*30)
+    print("n"*10)
+    clear_screen()
+    print("="*30)
     print("REDIGERA SPEL")
     print("="*30 + "\n")
 
@@ -165,7 +183,9 @@ def edit_game():
     ("Betyg", "rating", game_to_edit.rating),
     ]
 
-    print(f"\nDu har valt {game_to_edit}")
+    print("n"*10)
+    clear_screen()
+    print(f"\nDu har valt {game_to_edit}\n")
     
 
     for index in range(len(category_name)):
@@ -182,7 +202,10 @@ def edit_game():
     # en till tuple unpacking
     option_label, option_name, current_value = edit_option
 
-    new_value = input(f"Nuvarande {option_label}: {current_value}\nSkriv ett nytt värde: ")
+    new_value = input("\n"*3 + f"Nuvarande {option_label}: {current_value}\nSkriv ett nytt värde: ")
+
+    if not new_value:
+        new_value = current_value
 
     if option_name == "genre":
         new_value = [g.strip() for g in new_value.split(",")]
