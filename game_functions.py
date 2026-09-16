@@ -15,7 +15,7 @@ games_list = load_games()
 
 
 def add_game():
-    print("n"*10)
+    print("\n"*10)
     clear_screen()
     print("="*30)
     print("LÄGG TILL SPEL")
@@ -35,7 +35,7 @@ def add_game():
     games_list.append(new_game)
     save_games(games_list)
 
-    print("n"*10)
+    print("\n"*10)
     clear_screen()
     print(f"Du har lagt till spelet {name} i din lista.")
 
@@ -45,7 +45,7 @@ def add_game():
 
 
 def show_game():
-    print("n"*10)
+    print("\n"*10)
     clear_screen()
     print("="*30)
     print("DINA SPEL")
@@ -80,7 +80,7 @@ def show_game():
 
     sorting_name, sorting_function, sorting_reverse = sorting_option
 
-    print("n"*10)
+    print("\n"*10)
     clear_screen()
     print(f"\nDu valde att sortera med {sorting_name}\n")
     sorted_games = sorted(games_list, key=sorting_function, reverse=sorting_reverse)
@@ -95,7 +95,7 @@ def show_game():
 
 
 def search_game():
-    print("n"*10)
+    print("\n"*10)
     clear_screen()
     print("="*30)
     print("SÖK EFTER SPEL")
@@ -126,7 +126,7 @@ def search_game():
 
 
 def remove_game():
-    print("n"*10)
+    print("\n"*10)
     clear_screen()
     print("="*30)
     print("TA BORT SPEL")
@@ -152,7 +152,7 @@ def remove_game():
 
 
 def edit_game():
-    print("n"*10)
+    print("\n"*10)
     clear_screen()
     print("="*30)
     print("REDIGERA SPEL")
@@ -183,7 +183,7 @@ def edit_game():
     ("Betyg", "rating", game_to_edit.rating),
     ]
 
-    print("n"*10)
+    print("\n"*10)
     clear_screen()
     print(f"\nDu har valt {game_to_edit}\n")
     
