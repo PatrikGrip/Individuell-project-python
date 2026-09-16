@@ -14,7 +14,7 @@
             "FPS",
             "Battle-Royale"
         ],
-        "rating": "7"
+        "rating": "6"
     },
     {
         "name": "The Sims 4",
@@ -30,6 +30,17 @@
         "year": "2012",
         "genre": [
             "Tactical FPS"
+        ],
+        "rating": "9"
+    },
+    {
+        "name": "Warhammer 40,000: Darktide",
+        "year": "2022",
+        "genre": [
+            "Co-op",
+            "PvE",
+            "FPS",
+            "Class-Based"
         ],
         "rating": "9"
     }
