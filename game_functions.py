@@ -89,9 +89,30 @@ def show_game():
 
 
 
-# fixa sök på genre, spel som innehåller den bokstaven, 
 def search_game():
-    print("Här kan du söka på dina spel")
+    print("\n"*10 + "="*30)
+    print("SÖK EFTER SPEL")
+    print("="*30)
+
+    if not games_list:
+        print("Du har inga spel i din lista")
+        wait_for_input()
+        return
+
+    search_term = input("Sök efter spel: ")
+
+    results = []
+
+    for game in games_list:
+        if search_term.lower() in game.name.lower():
+            results.append(game)
+
+    if not results:
+        print("\nInga spel hittades")
+    else:
+        for game in results:
+            print(game)
+    
     wait_for_input()
 
 
