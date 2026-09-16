@@ -8,12 +8,16 @@ def get_valid_choice(prompt, max_value):
 
     if not user_input.isdigit():
         print("Ange ett giltigt nummer")
+
+        # Return None skickar tillbaka att det är ett ogiltigt val. den visar då ett felmeddelande och skickar tillbaka användaren
         return None
 
     choice = int(user_input)
 
     if not (1 <= choice <= max_value):
         print("Numret finns inte på listan.")
+
+        # Return None skickar tillbaka att det är ett ogiltigt val. den visar då ett felmeddelande och skickar tillbaka användaren
         return None
 
     return choice

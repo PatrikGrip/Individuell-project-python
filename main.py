@@ -1,7 +1,7 @@
 from game_functions import add_game, show_game, search_game, remove_game, edit_game, quit_program
 from utility import clear_screen
 
-# Tuple med text och funktion kopplade till texten
+# Varje alternativ är en tuple eftersom om jag ville lägga till flera val i menyn behöver jag endast ändra här
 category_name = [
     ("Lägg till spel", add_game),
     ("Visa alla spel", show_game),
@@ -44,10 +44,11 @@ while True:
         input("Tryck på Enter för att fortsätta")
         continue
 
-    # Om användaren väljer en siffra anropas den funktionen 
+    # Packar upp tuplen och tilldelar den som text och funktion 
     text, function = category_name[choice - 1]
 
-    # Om should_quit return som True så kommer programmet avslutas. Den enda som return True är quit_program
+    # Kör den valda funktionen och avslutar om should_quit är True.
+    # Den enda funktionen som return True är quit_program()
     should_quit = function()
 
     if should_quit:
